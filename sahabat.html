@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sahabat Selamanya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .heart-beat {
+            animation: pulse 1.5s infinite;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            opacity: 0;
+            animation: confetti-fall 3s linear forwards;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-200 to-purple-200 min-h-screen flex flex-col items-center justify-center p-4 font-sans relative">
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none" style="z-index: 9999;"></div>
+    
+    <div class="max-w-2xl w-full bg-white rounded-3xl shadow-2xl transform transition-all duration-300 p-8 text-center">
+        <div class="heart-beat text-pink-500 mb-8">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+            </svg>
+        </div>
+        
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600">
+            TERIMA KASIH!
+        </h1>
+        
+        <p class="text-2xl text-gray-700 mb-8">
+            Kini kita menjadi sahabat selamanya ❤️
+        </p>
+        
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-xl p-6 border-2 border-purple-200 mb-6">
+            <p class="text-xl font-medium text-purple-800">
+                Persahabatan kita akan abadi seperti matahari yang selalu bersinar ✨
+            </p>
+        </div>
+
+        <!-- Kolom Pesan untuk Pengguna -->
+        <div class="mb-6 p-4 border border-gray-300 rounded-lg bg-gray-50">
+            <p class="text-lg text-gray-800 font-bold">
+                For My Best Friend
+            </p>
+            <p class="text-lg text-gray-800 mt-2">
+                Hai, aku Aufa! Aku masih enggak percaya bisa berteman dengan kamu. Mau panggil aku dengan sebutan temanlah, sahabatlah, bro, hihihi.. itu terserah kamu saja, mau manggil aku bagaimana? Ooh iya, aku enggak yangka bisa berteman dengan kamu melalui chat ini. Mulai dari ngechat nomor orang secara ngasal, eeh... ternyata ketemu nomor ini. Ooh iya! Hampir lupa, aku mau bilang "Makasih yah! telah nemenin aku ngobrol, ngeceritain hal seru, dan ngerekomendasiin hal baru dan menarik, dan juga kamu sering jadi teman ngobrol aku diwaktu luang.
+            </p>
+            <p class="text-lg text-gray-800 mt-4">
+                Thank you forever, because you are my best friend, who has spent your time with me in this chat.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Create colorful confetti
+        const colors = ['#f87171', '#60a5fa', '#34d399', '#fbbf24', '#a78bfa', '#f472b6'];
+        const confettiContainer = document.getElementById('confetti-container');
+        
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.top = '-20px';
+            confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.width = Math.random() * 10 + 8 + 'px';
+            confetti.style.height = Math.random() * 10 + 8 + 'px';
+            confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+            confetti.style.animationDelay = Math.random() * 3 + 's';
+            confetti.style.opacity = '0.9';
+            
+            confettiContainer.appendChild(confetti);
+            
+            setTimeout(() => {
+                confetti.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

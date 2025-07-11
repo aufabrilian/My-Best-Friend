@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aku dan Kamu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            opacity: 0;
+            animation: confetti-fall 3s linear forwards;
+        }
+        
+        .heart-beat {
+            animation: pulse 1.5s infinite;
+        }
+        
+        .btn-3d {
+            transition: all 0.3s;
+            box-shadow: 0 4px 0 #1e40af, 0 5px 10px rgba(0,0,0,0.2);
+        }
+        
+        .btn-3d:active {
+            transform: translateY(4px);
+            box-shadow: 0 1px 0 #1e40af, 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .btn-3d:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #1e40af, 0 8px 15px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-200 to-purple-200 min-h-screen flex flex-col items-center justify-center p-4 font-sans relative">
+    <!-- Confetti container -->
+    <div id="confetti-container" class="fixed inset-0 pointer-events-none" style="z-index: 9999;"></div>
+    
+    <div class="max-w-md w-full bg-white rounded-3xl shadow-2xl transform transition-all duration-300 hover:shadow-xl overflow-y-auto">
+        <!-- Header Section with improved image -->
+        <div class="bg-gradient-to-r from-purple-600 to-pink-500 p-6 text-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+            <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6bd43127-7632-4c22-8e72-a8c34cd122eb.png" alt="Ilustrasi perempuan dan laki-laki sedang pertama kali bertemu di taman dengan ekspresi senang" class="absolute inset-0 w-full h-full object-cover opacity-30">
+            <div class="relative z-10">
+                <h1 class="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">Aku dan Kamu</h1>
+                <p class="text-white/90 mt-2 font-medium drop-shadow">Persahabatan Dimulai Di Sini</p>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="p-8" style="min-height: 400px;">
+            <div class="flex justify-center mb-6">
+                <div class="relative">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2041c2c4-9820-4332-aaf0-1e9b1ecfb265.png" alt="Ilustrasi separuh gambar profil yang menunjukkan wajah perempuan dan laki-laki" class="rounded-full border-4 border-purple-300 w-32 h-32 object-cover shadow-lg transition-transform duration-300 hover:scale-110">
+                    <div class="absolute -bottom-2 -right-2 bg-yellow-400 rounded-full w-10 h-10 flex items-center justify-center text-xl animate-bounce">🌸</div>
+                </div>
+            </div>
+            
+            <div class="text-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-800">Hai, Sahabatku!</h2>
+                <p class="text-gray-600 mt-2">Mari kita mulai petualangan persahabatan baru!</p>
+            </div>
+            
+            <!-- Question Box -->
+            <div class="bg-purple-50 rounded-xl p-6 mb-6 border-2 border-purple-200 shadow-inner">
+                <p class="text-center text-xl font-semibold text-purple-800 mb-4">Apakah kamu ingin berteman dengan saya?</p>
+                
+                <div class="flex justify-center space-x-6">
+                    <button id="yesBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full btn-3d transition-colors duration-300">
+                        YA!
+                    </button>
+                    <button id="noBtn" class="bg-red-400 hover:bg-red-500 text-white font-bold py-3 px-8 rounded-full btn-3d transition-colors duration-300">
+                        TIDAK
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Result Section -->
+            <div id="resultSection" class="hidden text-center pt-4">
+                <div class="heart-beat text-pink-500 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd" />
+                    </svg>
+                </div>
+                <h3 class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-600 mb-3">TERIMA KASIH!</h3>
+                <p class="text-lg text-gray-700 mb-4">Ini awal persahabatan yang indah!</p>
+                <div class="bg-gradient-to-r from-yellow-100 to-pink-100 rounded-xl p-4 border-2 border-yellow-200 shadow-inner">
+                    <p class="font-medium text-purple-800">Kita akan bersama seperti bintang di langit ✨</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('yesBtn').addEventListener('click', function() {
+            // Alihkan ke halaman sahabat.html
+            window.location.href = 'sahabat.html';
+        });
+        
+        document.getElementById('noBtn').addEventListener('click', function() {
+            alert('Yah, sedih kalau begitu... tapi tidak apa-apa!');
+        });
+    </script>
+</body>
+</html>
